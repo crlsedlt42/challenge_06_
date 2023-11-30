@@ -4,7 +4,7 @@ var searchBtn = document.querySelector("#searchBtn");
 
 function weatherInfo() {
     var cityName = document.querySelector("#cityName").value;
-    var weatherAPI = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=456382b69ba78bc0d18ae825d9b6baff`;
+    var weatherAPI = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=14db6a3dfe9576471ef5e9cdba113cb3`;
     console.log(cityName);
 
 
@@ -12,26 +12,44 @@ function weatherInfo() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            displayTodaysWeather(data);
-            displayFiveDayForecast(data);
+            //displayTodaysWeather(data);
+            //displayFiveDayForecast(data);
+
+            var temp = data.list.main.temp;
+            var wind = data.list.wind.speed;
+            var humidity = data.list.main.humidity;
+
+            var tempEl = document.createElement("p");
+            tempEl.innerText = temp + " °C";
+            resultsDivTemp.appendChild(tempEl);
+            
+            var windEl = document.createElement("p");
+            windEl.innerText = wind + " MPH";
+            resultsDivWind.appendChild(windEl);
+
+            var humidityEl = document.createElement("p");
+            humidityEl.innerText = humidity + "%";
+            resultsDivHum.appendChild(humidityEl);
         });
 
 
 
 }
 
-// Add event listen to button for funtionality with api
+weatherInfo();
 
-searchBtn.addEventListener("click", weatherInfo);
+// // Add event listen to button for funtionality with api
 
-// Route with inputed city name from user
+// searchBtn.addEventListener("click", weatherInfo);
 
-function displayTodaysWeather (dataParam) {
-    // Render Weather Data On Screen
-}
+// // Route with inputed city name from user
 
-// Funntion to display 5 day forecast
+// function displayTodaysWeather (dataParam) {
+//     // Render Weather Data On Screen
+// }
 
-function displayFiveDayForecast (dataParam) {
+// // Funntion to display 5 day forecast
 
-}
+// function displayFiveDayForecast (dataParam) {
+
+// }
