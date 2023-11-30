@@ -19,7 +19,7 @@ Node packages weren't used in this project, so no installation is required.
 
 ## Usage
 
-![screenshot](assets/images/screenshot.png)
+![screenshot](assets/Challenge_06-Weather.Forecast.jpg)
 
 ## License
 
